@@ -1,5 +1,4 @@
 name: build-and-lint
-
 # triggers: define when this workflow should run
 # trigger on push to these branches
 on:
@@ -7,11 +6,10 @@ on:
     branches: [main, dev]
   pull_request:
     branches: [main, dev]
-
     # define a job (multiple jobs also)
 jobs:
   build-and-lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
 
     steps:
       - name: Checkout repo
@@ -21,7 +19,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-
       - name: Install backend dependencies
         working-directory: server
         run: npm ci
